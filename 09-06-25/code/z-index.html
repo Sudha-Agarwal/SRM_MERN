@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <style>
+    .box1{
+        position:absolute;
+        width:150px;
+        height: 150px;
+        background: red;
+        z-index: -1;
+    }
+
+    .box2{
+        position:absolute;
+        width:150px;
+        height: 150px;
+        background: blue;
+        top:50px;
+        z-index: 1;
+    }
+   </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2">Text</div>
+</body>
+</html>
