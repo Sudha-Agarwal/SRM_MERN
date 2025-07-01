@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM Nodes Example</title>
+</head>
+<body>
+
+  <div id="container">
+    <p>Hello <strong>world</strong></p>
+  </div>
+
+  <button id="btn">Show Node Info</button>
+  <pre id="output"></pre>
+
+  <script>
+    // Access the root node (Document)
+    console.log(document);
+
+    // Access an element node
+    const div = document.getElementById("container");
+
+    // Access child nodes (includes text and elements)
+    const childNodes = div.childNodes;
+    console.log("Child Nodes of #container:", childNodes);
+
+    // Display node information when button is clicked
+    document.getElementById("btn").addEventListener("click", () => {
+      let output = "";
+
+      childNodes.forEach((node, index) => {
+        output += `Node ${index}:\n`;
+        output += `  nodeName: ${node.nodeName}\n`;
+        output += `  nodeType: ${node.nodeType}\n`;
+        output += `  textContent: ${node.textContent.trim()}\n\n`;
+      });
+
+      document.getElementById("output").textContent = output;
+    });
+
+    // Create and append a new node dynamically
+    const newPara = document.createElement("p");           // Element node
+    const newText = document.createTextNode("Hi there!");  // Text node
+    newPara.appendChild(newText);                          // Add text to <p>
+    document.body.appendChild(newPara);                    // Add <p> to body
+  </script>
+
+</body>
+</html>
