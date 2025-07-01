@@ -3,7 +3,7 @@
 //Assigned to a variable
 const MyClass = class{
     constructor(){
-        x = 10
+        //x = 10//error as classes are by default run in strict mode
     }
     sayHi(){
         console.log("Hello World")
