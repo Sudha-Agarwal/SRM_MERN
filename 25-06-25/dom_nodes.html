@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <ul id="fruits">
+    <li>Apple</li>
+    <li>Banana</li>
+  </ul>
+
+  <script>
+    const list = document.getElementById("fruits");
+    const nodes = list.childNodes;
+
+    nodes.forEach(node => {
+      console.log("Node type:", node.nodeType, "Node value:", node.nodeValue);
+    });
+  </script>
+</body>
+</html>
