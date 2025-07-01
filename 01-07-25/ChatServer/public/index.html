@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socket.io Chat</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+      #messages {
+        margin: 0;
+        padding: 10px;
+      }
+      #messages li {
+        margin-bottom: 10px;
+        font-size: 18px;
+      }
+      #messageInput {
+        display: block;
+        width: 100%;
+        margin-top: 10px;
+        font-size: 18px;
+        padding: 10px;
+      }
+    </style>
+</head>
+<body>
+    <ul id = "messages"></ul>
+    <form id="messageForm">
+        <input id = "messageInput" autocomplete="off" placeholder="Enter message">
+        <button type="submit">Send</button>
+    </form>
+
+    <script src = "/socket.io/socket.io.js"></script>
+
+    <script>
+        const socket = io();
+        const messages = document.getElementById('messages');
+        const messageForm = document.getElementById('messageForm');
+        const messageInput = document.getElementById('messageInput');
+
+        //Ask user for name
+        const username = prompt('Enter your name');
+
+        messageForm.addEventListener('submit',(e)=>{
+            e.preventDefault();
+            const message = messageInput.value;
+            socket.emit('chat message',{
+                user:username,
+                text:message
+            });
+            messageInput.value = '';
+        });
+
+        socket.on('chat message',(msg)=>{            
+            const li = document.createElement('li');
+            li.innerText = `${msg.user}: ${msg.text}`;
+            console.log(li.innerText)
+            messages.appendChild(li);
+        })
+
+    </script>
+</body>
+</html>
