@@ -28,3 +28,14 @@ async function getAsyncData(){
 }
 getAsyncData();
 console.log("synchronous code 2")
+
+
+
+
+
+
+
+
+
+
+  
