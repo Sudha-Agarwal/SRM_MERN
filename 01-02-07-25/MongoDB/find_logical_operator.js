@@ -32,7 +32,32 @@ async function run(){
             {age: 25}
         ]
     }).toArray();
-        console.log(res);
+        //console.log(res);
+
+        //AND
+        const andRes = await users.find({
+            $and: [
+                { active: true},
+                { city: "Delhi"}
+            ]
+        }).toArray();
+        //console.log(andRes);
+
+        //NOR
+        const norRes = await users.find({
+            $nor: [
+                 { active: true },
+                 { city: "Delhi"}
+            ]
+        }).toArray();
+        //console.log(norRes);
+
+        //NOT
+        const notRes = await users.find({
+            age: { $not: { $gt: 30 }}
+        }, { projection: {name:1}, sort: {name: 1}, limit:2}).toArray();
+        console.log(notRes);
+
 
 
 
