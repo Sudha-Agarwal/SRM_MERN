@@ -1,0 +1,51 @@
+/* App.css */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #282c34;
+  color: white;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  margin: 0 1rem;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+}
+
+.logout-button {
+  background: none;
+  border: 1px solid white;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+.logout-button:hover {
+  background-color: #61dafb;
+  color: #282c34;
+}
+
+.welcome-message {
+  margin-left: 1rem;
+  color: #61dafb;
+}
+
+.main-content {
+  padding: 2rem;
+}
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
